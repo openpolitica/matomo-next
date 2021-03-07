@@ -97,6 +97,9 @@ export function init({
       if (previousPath) {
         push(["setReferrerUrl", `${previousPath}`]);
       }
+      if (pathname === previousPath) {
+        return;
+      }
       push(["setCustomUrl", pathname]);
       push(["setDocumentTitle", document.title]);
       push(["deleteCustomVariables", "page"]);
