@@ -100,7 +100,7 @@ export function init({
       push(["setCustomUrl", pathname]);
       push(["setDocumentTitle", document.title]);
       push(["deleteCustomVariables", "page"]);
-      push(["setGenerationTimeMs", 0]);
+      //push(["setGenerationTimeMs", 0]);
       if (
         startsWith(pathname, "/recherche") ||
         startsWith(pathname, "/search")
