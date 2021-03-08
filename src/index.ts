@@ -90,15 +90,16 @@ export function init({
     // It seems that piwik doesn't track well page with querystring
     const [pathname] = path.split("?");
 
+    if (pathname === previousPath) {
+      return;
+    }
+
     // In order to ensure that the page title had been updated,
     // we delayed pushing the tracking to the next tick.
     setTimeout(() => {
       const { q } = Router.query;
       if (previousPath) {
         push(["setReferrerUrl", `${previousPath}`]);
-      }
-      if (pathname === previousPath) {
-        return;
       }
       push(["setCustomUrl", pathname]);
       push(["setDocumentTitle", document.title]);
